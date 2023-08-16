@@ -1,0 +1,200 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 500px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #language-selection {
+      font-size: 12px;
+      margin-right: 10px; 
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: white;
+  }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    input[type="number"] {
+      padding: 5px 10px;
+      width: 60px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 8px 15px;
+      font-size: 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+
+    .tags-container {
+      margin-top: 10px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .tags-label {
+      font-size: 14px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .tags-content {
+      font-size: 14px;
+      color: #555;
+      word-wrap: break-word;
+      margin-top: 5px;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: #555;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      margin: 2px 5px;
+      background-color: #007bff;
+      color: white;
+    }
+
+    .lds-dual-ring {
+      display: none;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+    }
+
+    #results {
+      display: flex; 
+      align-items: center;
+      margin-top: 15px;
+    }
+
+
+
+    .lds-dual-ring:after {
+      content: " ";
+      display: block;
+      width: 46px;
+      height: 46px;
+      margin: 1px;
+      border-radius: 50%;
+      border: 5px solid rgb(85, 134, 213);
+      border-color: rgb(85, 134, 213) transparent rgb(85, 134, 213) transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .result-item {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    #sentiment-container {
+      margin-right: 10px; 
+      font-size: 30px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes lds-dual-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+     
+      }
+    }
+    </style>
+  <script src="popup.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="input-container">
+      <label for="num-sentences">Number of sentences:</label>
+      <input type="number" id="num-sentences" min="1" max="10" required>
+      <div id="translate" class="result-item">
+        <select id="language-selection">
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="Spanish">Spanish</option>
+          <option value="German">German</option>
+          <option value="Italian">Italian</option>
+          <option value="Russian">Russian</option>
+          <option value="Hindi">Hindi</option>
+          <option value="Japanese">Japanese</option>
+        </select>
+      </div>
+      <button id="summarize">Summarize</button>
+    </div>
+    <div id="loading-icon" class="lds-dual-ring"></div>
+    <textarea id="summary" readonly></textarea>
+    <div id="results" class="hidden"> 
+      <div id="sentiment-container" class="result-item">
+       
+        <span id="sentiment-emoji" role="img" aria-label="Sentiment Emoji"></span>
+      </div>
+      <button id="copy-citation" class="result-item">Copy Citation</button>
+      <button id="copy-summary" class="result-item">Copy Summary</button>
+    </div>
+    <div class="tags-container">
+      <div id="tags" class="tags-content-container"></div>
+    </div>
+  </div>
+</body>
+
+
+</html>

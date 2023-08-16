@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Text Summarization",
+    "version": "1.0",
+    "description": "Summarizes text present in online articles or research papers.",
+    "permissions": ["activeTab", "storage", "scripting"],
+    "action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*/*"],
+        "js": [ "content.js"]
+      }
+    ]
+  }
+  
