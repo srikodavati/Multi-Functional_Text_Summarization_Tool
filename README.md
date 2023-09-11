@@ -23,7 +23,7 @@ Implementation of a text summarization tool to help users quickly identify and u
 You can clone the project repository using the following command
 
 ```
-git clone (https://github.com/srikodavati/Multi-Functional_Text_Summarization_Tool.git)
+git clone: https://github.com/srikodavati/Multi-Functional_Text_Summarization_Tool.git 
 ```
 
 ## Run the application
